@@ -1,12 +1,30 @@
 {
-  "framework": "angular",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist/generador-facturas",
-  "installCommand": "npm install",
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/generador-facturas"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "assets": [
+    "src/favicon.ico",
+    "src/assets",
+    {
+      "glob": "_redirects",
+      "input": "public",
+      "output": "/"
     }
   ]
 }

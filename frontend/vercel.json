@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm ci && npm run build",
-  "outputDirectory": "dist/invoice-generator",
+  "outputDirectory": "dist/generador-facturas",
   "installCommand": "npm ci",
   "rewrites": [
     {

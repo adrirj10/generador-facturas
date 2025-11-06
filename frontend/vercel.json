@@ -1,5 +1,11 @@
 {
     "buildCommand": "npm install && npm run build",
-    "outputDirectory": "dist",
-    "framework": "angular"
+    "outputDirectory": "dist/invoice-generator",
+    "framework": "angular",
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
+    ]
   }

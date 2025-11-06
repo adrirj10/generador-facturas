@@ -568,8 +568,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 **Tu Nombre**
 
-- GitHub: [@tu-usuario](https://github.com/tu-usuario)
-- Email: tu-email@example.com
+- GitHub: [@adrirj10](https://github.com/adrirj10)
 
 ---
 

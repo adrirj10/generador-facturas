@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  password  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  invoices  Invoice[]
+}
+
+model Invoice {
+  id          String         @id @default(cuid())
+  invoiceNumber String
+  emitterName    String?
+  emitterCif     String?
+  emitterAddress String?
+  emitterPhone   String?
+  emitterEmail   String?
+  emitterLogo    String?
+  clientName     String
+  clientCif      String?
+  clientAddress  String?
+  clientPhone    String?
+  clientEmail    String?
+  date          DateTime      @default(now())
+  subtotal      Float
+  tax           Float         @default(0)
+  total         Float
+  notes         String?
+  userId        String?
+  user          User?         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items         InvoiceItem[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model InvoiceItem {
+  id          String   @id @default(cuid())
+  description String
+  quantity    Float
+  unitPrice   Float
+  tax         Float    @default(0)
+  total       Float
+  invoiceId   String
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+}
+

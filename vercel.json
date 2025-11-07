@@ -1,12 +1,5 @@
 {
-    "projects": {
-      "frontend": {
-        "src": "frontend",
-        "buildCommand": "npm install && npm run build",
-        "outputDirectory": "dist/frontend",
-        "rewrites": [
-          { "source": "/(.*)", "destination": "/index.html" }
-        ]
-      }
-    }
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/" }
+    ]
   }
